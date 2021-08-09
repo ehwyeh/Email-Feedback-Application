@@ -1,4 +1,5 @@
 // Root file of node project
+// Github: create project folder, then run git.init in terminal to automatiically create repo on github
 
 // Import express, same as "import express from 'express'" but node currently does not support ES 2015 modules, React does though.
 const express = require('express');
