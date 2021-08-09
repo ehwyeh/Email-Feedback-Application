@@ -20,4 +20,4 @@ app.get('/', (req, res) => {
 // tells node to listen for incoming traffic on port 5000
 app.listen(5000);
 
-//node index.js in terminal to run, you will see your server in localhost:5000
+//change package.json script to "start": "node index.js", now just use npm run start to start server
