@@ -8,21 +8,28 @@ const app = express();
 
 // Tells passport to create a new GoogleStrategy instance
 passport.use(
-  new GoogleStrategy({
-    clientID: keys.googleClientID,
-    clientSecret: keys.googleClientSecret,
-    callbackURL: '/auth/google/callback'
-  }, (accessToken) => {
-    console.log(accessToken);
-  })
+  new GoogleStrategy(
+    {
+      clientID: keys.googleClientID,
+      clientSecret: keys.googleClientSecret,
+      callbackURL: "/auth/google/callback",
+    },
+    (accessToken) => {
+      console.log(accessToken);
+    }
+  )
 );
 
+app.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+  })
+);
 app.get("/", (req, res) => {
-  res.send({ loveYou: "carnie" });
+  res.send({ loveYou: "cae" });
 });
 
-// 880297016786-gtf0n76trcjlfhs6mdooocdmsntgvbkd.apps.googleusercontent.com
-// 9H9FE4r4ALopNG2J_8CSgBKt
 const PORT = process.env.PORT || 5000;
 // applicaition link https://rocky-oasis-53450.herokuapp.com/
 app.listen(PORT);
